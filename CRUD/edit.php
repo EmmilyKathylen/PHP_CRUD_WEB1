@@ -42,24 +42,35 @@ if (sizeof($data) == 0) {
     font-size: 20px;  
 }
 
+.edit input{
+    display: block;
+    margin-bottom: 10px;
+    background-color: white;
+    border: none;
+    width: 300px;
+    height: 60px;
+    outline: none;
+    border-radius: 20px;
+    font-size: 25px;
+}
 
 
 </style>
 
 
 <body>
-    <h1>Dados da tabela: ID <?= $nome ?></h1>
-
+    <h1>Dados da tabela <?= $nome ?></h1>
+    <div class="edit">
     <form action="update.php" method="POST">
-        <input type="text" name="nome" placeholder="Nome" value="<?= $data[1] ?>">
-        <input type="text" name="genero" placeholder="Gênero" value="<?= $data[2] ?>"> 
-        <input type="text" name="autor" placeholder="Autor" value="<?= $data[3] ?>">
+        <input type="hidden" name="nome" value="<?= $data[0] ?>">
+        <input type="text" name="genero" placeholder="Gênero" value="<?= $data[1] ?>"> 
+        <input type="text" name="autor" placeholder="Autor" value="<?= $data[2] ?>">
         <button>Salvar</button>
         <p>
             <a href="index.php">Voltar</a>
         </p>
 
-
     </form>
+    </div>
 </body>
 </html>

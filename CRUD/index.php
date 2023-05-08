@@ -1,13 +1,3 @@
-<?php
-$id = 1;
-
-$fp = fopen('anime.csv', 'r');
-
-while (($row = fgetcsv($fp)) !== false) {
-    $id++;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +65,6 @@ while (($row = fgetcsv($fp)) !== false) {
     <h1>Tabela</h1>
     <table>
         <tr>
-            <th>ID</th>
             <th>Nome</th>
             <th>Gênero</th>
             <th>Autor</th>
@@ -88,7 +77,6 @@ while (($row = fgetcsv($fp)) !== false) {
                 <td><?= $row[0] ?></td>
                 <td><?= $row[1] ?></td>
                 <td><?= $row[2] ?></td>
-                <td><?= $row[3] ?></td>
                 <td>
                     <form action="delete.php" method="GET">
                         <input type="hidden" name="nome" value="<?= $row[0] ?>">
@@ -103,7 +91,6 @@ while (($row = fgetcsv($fp)) !== false) {
     </table>
        <div class="form">   
      <form action="add.php" method="POST">
-        <input type="hidden" name = "id" value="<?= $id;?>" readonly>
         <input type="text"  name="nome" placeholder="Nome" required>
         <input type="text"  name="genero" placeholder="Gênero" required>
         <input type="text"  name="autor" placeholder="Autor" required>
