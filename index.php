@@ -106,7 +106,7 @@ p{
         <input type="text" name="usuario" placeholder="Usuário" required>
         <input type="password" name="senha" placeholder="senha" required>
         <button>Entrar</button>
-    <p><a href="login.php">Crie usa conta aqui!</a></p>
+    <p><a href="login.php">Crie sua conta aqui!</a></p>
     </div>
 </section> 
 </form>
