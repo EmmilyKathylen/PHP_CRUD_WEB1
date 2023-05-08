@@ -1,7 +1,7 @@
 <?php
-$nome = $_POST['nome'];
-$genero = $_POST['genero'];
-$autor = $_POST['autor'];
+$descricao = $_POST['descricao'];
+$valor = $_POST['valor'];
+$data = $_POST['data'];
 
 $tempName = tempnam('.', '');
 
@@ -10,8 +10,8 @@ $tempName = tempnam('.', '');
 $temp = fopen($tempName, 'w');
 $orig = fopen('anime.csv', 'r');
 while (($row = fgetcsv($orig)) !== false) {
-    if ($row[0] == $nome) {
-        fputcsv($temp, [$nome, $genero, $autor]);
+    if ($row[0] == $descricao) {
+        fputcsv($temp, [$descricao, $valor, $data]);
         continue;
     }   
     fputcsv($temp, $row);

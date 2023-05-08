@@ -1,12 +1,12 @@
 <?php
-$nome = $_POST['nome'];
-$genero = $_POST['genero'];
-$autor = $_POST['autor'];
+$descricao = $_POST['descricao'];
+$valor = $_POST['valor'];
+$data = $_POST['data'];
 
 
 $fp = fopen('anime.csv', 'r');
 while (($row = fgetcsv($fp)) !== false) {
-    if ($row[0] == $nome) {
+    if ($row[0] == $descricao) {
         http_response_code(400);
         echo "já adicionado";
         exit();
@@ -15,7 +15,7 @@ while (($row = fgetcsv($fp)) !== false) {
 
 
 $fp = fopen('anime.csv', 'a');
-fputcsv($fp, [$nome, $genero, $autor]);
+fputcsv($fp, [$descricao, $valor, $data]);
 
 
 http_response_code(302);

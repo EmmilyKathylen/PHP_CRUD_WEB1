@@ -1,6 +1,6 @@
 <?php
 
-$nome = $_GET['nome'];
+$descricao = $_GET['descricao'];
 
 $tempName = tempnam('.', '');
 
@@ -9,7 +9,7 @@ $tempName = tempnam('.', '');
 $temp = fopen($tempName, 'w');
 $orig = fopen('anime.csv', 'r');
 while (($row = fgetcsv($orig)) !== false) {
-    if ($row[0] == $nome) {
+    if ($row[0] == $descricao) {
         continue;
     }
     fputcsv($temp, $row);

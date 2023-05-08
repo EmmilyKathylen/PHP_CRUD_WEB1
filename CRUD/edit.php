@@ -1,10 +1,10 @@
 <?php
-    $nome = $_GET['nome'];
+    $descricao = $_GET['descricao'];
     $fp = fopen('anime.csv', 'r');
     $data = [];
 
     while (($row = fgetcsv($fp)) !== false) {
-        if ($row[0] == $nome) {
+        if ($row[0] == $descricao) {
             $data = $row;
             break;
         }
@@ -59,12 +59,12 @@ if (sizeof($data) == 0) {
 
 
 <body>
-    <h1>Dados da tabela <?= $nome ?></h1>
+    <h1>Dados da tabela <?= $descricao ?></h1>
     <div class="edit">
     <form action="update.php" method="POST">
-        <input type="hidden" name="nome" value="<?= $data[0] ?>">
-        <input type="text" name="genero" placeholder="Gênero" value="<?= $data[1] ?>"> 
-        <input type="text" name="autor" placeholder="Autor" value="<?= $data[2] ?>">
+        <input type="hidden" name="descricao" value="<?= $data[0] ?>">
+        <input type="text" name="valor" placeholder="Valor" value="<?= $data[1] ?>"> 
+        <input type="text" name="data" placeholder="Data" value="<?= $data[2] ?>">
         <button>Salvar</button>
         <p>
             <a href="index.php">Voltar</a>

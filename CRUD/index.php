@@ -62,12 +62,12 @@
 </style>
 
 <body>
-    <h1>Tabela</h1>
+    <h1>Tabela de gastos</h1>
     <table>
         <tr>
-            <th>Nome</th>
-            <th>Gênero</th>
-            <th>Autor</th>
+            <th>Descrição do gasto</th>
+            <th>Valor</th>
+            <th>Data</th>
             <th>Deletar</th>
             <th>Editar</th>
         </tr>
@@ -79,21 +79,21 @@
                 <td><?= $row[2] ?></td>
                 <td>
                     <form action="delete.php" method="GET">
-                        <input type="hidden" name="nome" value="<?= $row[0] ?>">
+                        <input type="hidden" name="descricao" value="<?= $row[0] ?>">
                         <button>Remover</button>
                     </form>
                 </td>
                 <td>
-                    <a href="edit.php?nome=<?= $row[0] ?>">Editar</a>
+                    <a href="edit.php?descricao=<?= $row[0] ?>">Editar</a>
                 </td>
             </tr>        
         <?php endwhile ?>
     </table>
        <div class="form">   
      <form action="add.php" method="POST">
-        <input type="text"  name="nome" placeholder="Nome" required>
-        <input type="text"  name="genero" placeholder="Gênero" required>
-        <input type="text"  name="autor" placeholder="Autor" required>
+        <input type="text"  name="descricao" placeholder="Descrição" required>
+        <input type="text"  name="valor" placeholder="Valor" required>
+        <input type="text"  name="data" placeholder="Data" required>
         <button>Salvar</button>
 
         <p>
