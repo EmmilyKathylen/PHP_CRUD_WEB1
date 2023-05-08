@@ -73,7 +73,6 @@ button{
   background-color: white;
   font-size: 25px;
   font-weight: bold;
-  text-transform: uppercase; 
   cursor: pointer;
   border-radius: 20px;
 }
