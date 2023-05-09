@@ -97,6 +97,7 @@ p{
 <body>
 <h1>Catálogo de vinho</h1> 
 <?php if (!isset($_SESSION['auth']) || $_SESSION['auth'] !== true): ?>
+   <!--verificando se o usuário está autenticado -->
 
     <section calss="area-login">
     <div class="login">

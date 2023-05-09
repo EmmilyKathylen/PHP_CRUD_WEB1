@@ -85,7 +85,7 @@ $id = uniqid();
 </style>
 
 <body>
-    <h1>Tabela de vinho</h1>
+    <h1>Adega de vinhos</h1>
     <table>
         <tr>
             <th>Código</th>
@@ -117,7 +117,7 @@ $id = uniqid();
         <?php endwhile ?>
     </table>
        <div class="form">   
-     <form action="add.php" method="POST">
+     <form action="addVinho.php" method="POST">
         <input type="hidden" name="id" value="<?= $id;?>">
         <input type="text" name="nome" placeholder="Nome">
         <input type="text" name="marca" placeholder="Marca" required>
