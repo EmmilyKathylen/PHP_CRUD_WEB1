@@ -1,10 +1,17 @@
 <?php
-    $descricao = $_GET['descricao'];
+
+session_start();
+if(!isset($_SESSION['auth']) || $_SESSION['auth'] !== true) {
+    http_response_code(403);
+    exit();
+}
+
+    $id = $_GET['id'];
     $fp = fopen('anime.csv', 'r');
     $data = [];
 
     while (($row = fgetcsv($fp)) !== false) {
-        if ($row[0] == $descricao) {
+        if ($row[0] == $id) {
             $data = $row;
             break;
         }
@@ -59,12 +66,13 @@ if (sizeof($data) == 0) {
 
 
 <body>
-    <h1>Dados da tabela <?= $descricao ?></h1>
+    <h1>Dados da tabela <?= $id ?></h1>
     <div class="edit">
     <form action="update.php" method="POST">
-        <input type="hidden" name="descricao" value="<?= $data[0] ?>">
-        <input type="text" name="valor" placeholder="Valor" value="<?= $data[1] ?>"> 
-        <input type="text" name="data" placeholder="Data" value="<?= $data[2] ?>">
+        <input type="hidden" name="id" value="<?= $data[0] ?>">
+        <input type="text" name="descricao" placeholder="Descrição" value="<?= $data[1] ?>"> 
+        <input type="text" name="valor" placeholder="Valor" value="<?= $data[2] ?>"> 
+        <input type="text" name="data" placeholder="Data" value="<?= $data[3] ?>">
         <button>Salvar</button>
         <p>
             <a href="index.php">Voltar</a>

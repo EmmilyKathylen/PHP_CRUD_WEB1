@@ -1,19 +1,18 @@
 <?php
 
-$descricao = $_GET['descricao'];
+$id = $_GET['id'];
 
 $tempName = tempnam('.', '');
 
-
-
 $temp = fopen($tempName, 'w');
 $orig = fopen('anime.csv', 'r');
+
 while (($row = fgetcsv($orig)) !== false) {
-    if ($row[0] == $descricao) {
-        continue;
-    }
+    if ($row[0] == $id) {
     fputcsv($temp, $row);
+    }
 }
+
 fclose($temp);
 fclose($orig);
 

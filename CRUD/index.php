@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['auth']) || $_SESSION['auth'] !== true) {
+    http_response_code(403);
+    exit();
+}
+
+$id = uniqid();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,6 +77,7 @@
     <h1>Tabela de gastos</h1>
     <table>
         <tr>
+            <th>ID</th>
             <th>Descrição do gasto</th>
             <th>Valor</th>
             <th>Data</th>
@@ -77,23 +90,25 @@
                 <td><?= $row[0] ?></td>
                 <td><?= $row[1] ?></td>
                 <td><?= $row[2] ?></td>
+                <td><?= $row[3] ?></td>
                 <td>
                     <form action="delete.php" method="GET">
-                        <input type="hidden" name="descricao" value="<?= $row[0] ?>">
+                        <input type="hidden" name="id" value="<?= $row[0] ?>">
                         <button>Remover</button>
                     </form>
                 </td>
                 <td>
-                    <a href="edit.php?descricao=<?= $row[0] ?>">Editar</a>
+                    <a href="edit.php?id=<?= $row[0] ?>">Editar</a>
                 </td>
             </tr>        
         <?php endwhile ?>
     </table>
        <div class="form">   
      <form action="add.php" method="POST">
-        <input type="text"  name="descricao" placeholder="Descrição" required>
-        <input type="text"  name="valor" placeholder="Valor" required>
-        <input type="text"  name="data" placeholder="Data" required>
+        <input type="hidden" name="id" value="<?= $id;?>">
+        <input type="text" name="descricao" placeholder="Descrição">
+        <input type="text" name="valor" placeholder="Valor" required>
+        <input type="text" name="data" placeholder="Data" required>
         <button>Salvar</button>
 
         <p>
