@@ -16,7 +16,7 @@ $id = uniqid();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo</title>
+    <title>vinho</title>
 </head>
 
 <style>
@@ -43,7 +43,7 @@ $id = uniqid();
             margin-bottom: 1em; 
             margin-top: 20px;
             margin: 0 auto;
-            font-size: 30px;
+            font-size: 20px;
         }
 
         .form{
@@ -55,16 +55,16 @@ $id = uniqid();
 
         input{
             height: 25px;
-            font-size: 15px;
+            font-size: 14px;
         }
         a{
         color: #9efd9e;
-        font-size: 35px;  
+        font-size: 25px;  
         }
         button{
-        width: 150px; 
+        width: 100px; 
         height: 50px;   
-        font-size: 35px;  
+        font-size: 20px;  
         border-radius: 10px;
         background-color: #1B1F27;
         color: #9efd9e;
@@ -73,7 +73,7 @@ $id = uniqid();
 
         .form button{
         width: 100px; 
-        height: 50px;   
+        height: 40px;   
         font-size: 25px;  
         border-radius: 15px;
         background-color: #1B1F27;
@@ -85,23 +85,25 @@ $id = uniqid();
 </style>
 
 <body>
-    <h1>Tabela de gastos</h1>
+    <h1>Tabela de vinho</h1>
     <table>
         <tr>
-            <th>ID</th>
-            <th>Descrição do gasto</th>
-            <th>Valor</th>
-            <th>Data</th>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Marca</th>
+            <th>Tipo</th>
+            <th>País de origem</th>
             <th>Deletar</th>
             <th>Editar</th>
         </tr>
-        <?php $fp = fopen('anime.csv', 'r') ?>
+        <?php $fp = fopen('vinho.csv', 'r') ?>
         <?php while (($row = fgetcsv($fp)) !== false): ?>
             <tr>
                 <td><?= $row[0] ?></td>
                 <td><?= $row[1] ?></td>
                 <td><?= $row[2] ?></td>
                 <td><?= $row[3] ?></td>
+                <td><?= $row[4] ?></td>
                 <td>
                     <form action="delete.php" method="GET">
                         <input type="hidden" name="id" value="<?= $row[0] ?>">
@@ -117,9 +119,10 @@ $id = uniqid();
        <div class="form">   
      <form action="add.php" method="POST">
         <input type="hidden" name="id" value="<?= $id;?>">
-        <input type="text" name="descricao" placeholder="Descrição">
-        <input type="text" name="valor" placeholder="Valor" required>
-        <input type="text" name="data" placeholder="Data" required>
+        <input type="text" name="nome" placeholder="Nome">
+        <input type="text" name="marca" placeholder="Marca" required>
+        <input type="text" name="tipo" placeholder="Tipo" required>
+        <input type="text" name="pais" placeholder="País" required>
         <button>Salvar</button>
 
         <p>

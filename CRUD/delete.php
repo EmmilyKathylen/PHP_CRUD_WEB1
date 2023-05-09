@@ -5,7 +5,7 @@ $id = $_GET['id'];
 $tempName = tempnam('.', '');
 
 $temp = fopen($tempName, 'w');
-$orig = fopen('anime.csv', 'r');
+$orig = fopen('vinho.csv', 'r');
 
 while (($row = fgetcsv($orig)) !== false) {
     if ($row[0] != $id) {
@@ -17,7 +17,7 @@ fclose($temp);
 fclose($orig);
 
 
-rename($tempName, 'anime.csv');
+rename($tempName, 'vinho.csv');
 
 header('location: index.php');
 

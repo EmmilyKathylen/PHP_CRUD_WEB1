@@ -1,11 +1,12 @@
 <?php
 $id = $_POST['id'];
-$descricao = $_POST['descricao'];
-$valor = $_POST['valor'];
-$data = $_POST['data'];
+$nome = $_POST['nome'];
+$marca = $_POST['marca'];
+$tipo = $_POST['tipo'];
+$pais = $_POST['pais'];
 
 
-$fp = fopen('anime.csv', 'r');
+$fp = fopen('vinho.csv', 'r');
 while (($row = fgetcsv($fp)) !== false) {
     if ($row[0] == $id) {
         http_response_code(400);
@@ -15,8 +16,8 @@ while (($row = fgetcsv($fp)) !== false) {
 }
 
 
-$fp = fopen('anime.csv', 'a');
-fputcsv($fp, [$id, $descricao, $valor, $data]);
+$fp = fopen('vinho.csv', 'a');
+fputcsv($fp, [$id,$nome, $marca, $tipo, $pais]);
 
 
 http_response_code(302);

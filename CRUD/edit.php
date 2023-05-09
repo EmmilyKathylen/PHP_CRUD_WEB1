@@ -7,7 +7,7 @@ if(!isset($_SESSION['auth']) || $_SESSION['auth'] !== true) {
 }
 
     $id = $_GET['id'];
-    $fp = fopen('anime.csv', 'r');
+    $fp = fopen('vinho.csv', 'r');
     $data = [];
 
     while (($row = fgetcsv($fp)) !== false) {
@@ -28,7 +28,7 @@ if (sizeof($data) == 0) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editar tabela</title>
 </head>
 
 
@@ -54,17 +54,17 @@ if (sizeof($data) == 0) {
     margin-bottom: 10px;
     background-color: white;
     border: none;
-    width: 300px;
-    height: 60px;
+    width: 250px;
+    height: 55px;
     outline: none;
     border-radius: 20px;
     font-size: 25px;
 }
 
 .edit button{
-    width: 100px; 
-    height: 50px;   
-    font-size: 25px;  
+    width: 90px; 
+    height: 45px;   
+    font-size: 20px;  
     border-radius: 15px;
     background-color: #1B1F27;
     color: #9efd9e;
@@ -76,13 +76,14 @@ if (sizeof($data) == 0) {
 
 
 <body>
-    <h1>Dados do ID <?= $id ?></h1>
+    <h1>Dados do Código <?= $id ?></h1>
     <div class="edit">
     <form action="update.php" method="POST">
         <input type="hidden" name="id" value="<?= $data[0] ?>">
-        <input type="text" name="descricao" placeholder="Descrição" value="<?= $data[1] ?>"> 
-        <input type="text" name="valor" placeholder="Valor" value="<?= $data[2] ?>"> 
-        <input type="text" name="data" placeholder="Data" value="<?= $data[3] ?>">
+        <input type="text" name="nome" placeholder="Nome" value="<?= $data[1] ?>"> 
+        <input type="text" name="marca" placeholder="Marca" value="<?= $data[2] ?>"> 
+        <input type="text" name="tipo" placeholder="Tipo" value="<?= $data[3] ?>">
+        <input type="text" name="pais" placeholder="País" value="<?= $data[4] ?>" >
         <button>Salvar</button>
         <p>
             <a href="index.php">Voltar</a>

@@ -95,7 +95,7 @@ p{
 
 </head>
 <body>
-<h1>Sistema de Gerenciamento</h1> 
+<h1>Catálogo de vinho</h1> 
 <?php if (!isset($_SESSION['auth']) || $_SESSION['auth'] !== true): ?>
 
     <section calss="area-login">
@@ -112,7 +112,7 @@ p{
 
     <?php else: ?>
         <div class="home">
-        <p>Confira seus gastos <a href="CRUD/">aqui</a> </p>
+        <p>Confira o seu catálogo de vinho <a href="CRUD/">aqui</a> </p>
         <br>
         <a href="logout.php">Sair da conta</a>
     </div>
