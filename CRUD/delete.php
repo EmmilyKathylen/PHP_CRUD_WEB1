@@ -8,7 +8,7 @@ $temp = fopen($tempName, 'w');
 $orig = fopen('anime.csv', 'r');
 
 while (($row = fgetcsv($orig)) !== false) {
-    if ($row[0] == $id) {
+    if ($row[0] != $id) {
     fputcsv($temp, $row);
     }
 }

@@ -71,6 +71,17 @@ $id = uniqid();
         box-shadow: none;
         }
 
+        .form button{
+        width: 100px; 
+        height: 50px;   
+        font-size: 25px;  
+        border-radius: 15px;
+        background-color: #1B1F27;
+        color: #9efd9e;
+        box-shadow: none;
+        
+        }
+
 </style>
 
 <body>
