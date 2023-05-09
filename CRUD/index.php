@@ -69,6 +69,8 @@ $id = uniqid();
         background-color: #1B1F27;
         color: #9efd9e;
         box-shadow: none;
+        cursor: pointer;
+        
         }
 
         .form button{
