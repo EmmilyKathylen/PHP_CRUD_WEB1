@@ -61,12 +61,22 @@ if (sizeof($data) == 0) {
     font-size: 25px;
 }
 
+.edit button{
+    width: 100px; 
+    height: 50px;   
+    font-size: 25px;  
+    border-radius: 15px;
+    background-color: #1B1F27;
+    color: #9efd9e;
+    box-shadow: none;
+}
+
 
 </style>
 
 
 <body>
-    <h1>Dados da tabela <?= $id ?></h1>
+    <h1>Dados do ID <?= $id ?></h1>
     <div class="edit">
     <form action="update.php" method="POST">
         <input type="hidden" name="id" value="<?= $data[0] ?>">
